@@ -19,12 +19,12 @@ if __name__ == '__main__':
     tokenizer = LanguageBindImageTokenizer.from_pretrained(pretrained_ckpt, cache_dir='./cache_dir/tokenizer_cache_dir')
     modality_transform = {c: transform_dict[c](model.modality_config[c]) for c in clip_type.keys()}
 
-    image = ['assets/image/0.jpg', 'assets/image/1.jpg']
+    #image = ['assets/image/0.jpg', 'assets/image/1.jpg']
     video = ['/home/sal161/video_outputs/fffbaeef-577f-45f0-baa9-f10cabf62dfb/fps_8/mini_videos/mini_video_1.mp4', '/home/sal161/video_outputs/fffbaeef-577f-45f0-baa9-f10cabf62dfb/fps_8/mini_videos/mini_video_2.mp4', '/home/sal161/video_outputs/fffbaeef-577f-45f0-baa9-f10cabf62dfb/fps_8/mini_videos/mini_video_3.mp4', '/home/sal161/video_outputs/fffbaeef-577f-45f0-baa9-f10cabf62dfb/fps_8/mini_videos/mini_video_4.mp4']
     language = ["Person waving", "Training a parakeet to climb up a ladder.", 'A lion climbing a tree to catch a monkey.']
 
     inputs = {
-        'image': to_device(modality_transform['image'](image), device),
+        #'image': to_device(modality_transform['image'](image), device),
         'video': to_device(modality_transform['video'](video), device),
     }
     inputs['language'] = to_device(tokenizer(language, max_length=77, padding='max_length',
@@ -35,8 +35,8 @@ if __name__ == '__main__':
 
     print("Video x Text: \n",
           torch.softmax(embeddings['video'] @ embeddings['language'].T, dim=-1).detach().cpu().numpy())
-    print("Image x Text: \n",
-          torch.softmax(embeddings['image'] @ embeddings['language'].T, dim=-1).detach().cpu().numpy())
+    #print("Image x Text: \n",
+    #      torch.softmax(embeddings['image'] @ embeddings['language'].T, dim=-1).detach().cpu().numpy())
 
 #     v = embeddings['video'] @ embeddings['language'].T
 #     s = torch.softmax(v, dim=0)
