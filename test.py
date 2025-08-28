@@ -26,10 +26,24 @@ if __name__ == '__main__':
     ident = "sal161"
     mini_videos_path = base_path = f"/home/{ident}/video_outputs/{video_id}/fps_8/mini_videos"
 
-    video = glob.glob(os.path.join(base_path, "*.mp4"))
+    clip_start = 90
+    clip_end = 570
+
+    all_videos = glob.glob(os.path.join(base_path, "*.mp4"))
+
+    video = []
+    for v in all_videos:
+        fname = os.path.basename(v)                 # e.g. mini_video_123.mp4
+        num = int(fname.split("_")[-1].split(".")[0])  # get the 123
+        if clip_start <= num <= clip_end:
+            video.append(v)
 
     #video = ['/home/sal161/video_outputs/fffbaeef-577f-45f0-baa9-f10cabf62dfb/fps_8/mini_videos/mini_video_1.mp4', '/home/sal161/video_outputs/fffbaeef-577f-45f0-baa9-f10cabf62dfb/fps_8/mini_videos/mini_video_2.mp4', '/home/sal161/video_outputs/fffbaeef-577f-45f0-baa9-f10cabf62dfb/fps_8/mini_videos/mini_video_3.mp4', '/home/sal161/video_outputs/fffbaeef-577f-45f0-baa9-f10cabf62dfb/fps_8/mini_videos/mini_video_4.mp4']
     language = [
+        "Where was the chocolate",
+        "Chocolate",
+        "Lemon",
+        "Where is the Russell Stover",
         "Where was the Russell Stover before I picked it up?", 
         "I totally got that feeling, because just the other day I picked up a snack and then pondered its journey. It made me wonder, where was that Russell Stover before you picked it up?", 
         "Hey, I was just wondering, you know, like when I pick up my own snacks, I always think about where they've been. So, where was that Russell Stover before you picked it up, and what state was it in?"
@@ -70,7 +84,7 @@ if __name__ == '__main__':
     # print("Video x Text: \n", # relative to other prompts - each row sums to 1 and indicates which is most likely to correspond to prompt
     #      torch.softmax(embeddings['video'] @ embeddings['language'].T, dim=-1).detach().cpu().numpy())
 
-    k = 3 # finding top 3 most similar segments for each prompt
+    k = 10 # finding top 3 most similar segments for each prompt
     num_videos, num_prompts = v.shape
     k = min(k, num_videos)  # safety if k > num_videos
 
