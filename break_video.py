@@ -99,36 +99,37 @@ def process_video(video_path, fps_required):
 
         return mini_video_files, images, output_dir
 
-video_path = '/home/datasets/ego4d_data/v2/full_scale/fffbaeef-577f-45f0-baa9-f10cabf62dfb.mp4'
+video_path = '/home/datasets/ego4d_data/v2/full_scale/ff1f1ba3-ec19-4947-8632-1f7778e7a115.mp4'
 mini_video_files, images, output_dir = process_video(video_path, fps_required=8)
 
-video = mini_video_files
-image = images
 
-# rest of langugae bind
-device = 'cuda:0'
-device = torch.device(device)
-clip_type = {
-    'video': 'LanguageBind_Video_FT',  # also LanguageBind_Video
-}
+# video = mini_video_files
+# image = images
 
-model = LanguageBind(clip_type=clip_type, cache_dir='./cache_dir')
-model = model.to(device)
-model.eval()
-pretrained_ckpt = f'lb203/LanguageBind_Image'
-tokenizer = LanguageBindImageTokenizer.from_pretrained(pretrained_ckpt, cache_dir='./cache_dir/tokenizer_cache_dir')
-modality_transform = {c: transform_dict[c](model.modality_config[c]) for c in clip_type.keys()}
+# # rest of langugae bind
+# device = 'cuda:0'
+# device = torch.device(device)
+# clip_type = {
+#     'video': 'LanguageBind_Video_FT',  # also LanguageBind_Video
+# }
+
+# model = LanguageBind(clip_type=clip_type, cache_dir='./cache_dir')
+# model = model.to(device)
+# model.eval()
+# pretrained_ckpt = f'lb203/LanguageBind_Image'
+# tokenizer = LanguageBindImageTokenizer.from_pretrained(pretrained_ckpt, cache_dir='./cache_dir/tokenizer_cache_dir')
+# modality_transform = {c: transform_dict[c](model.modality_config[c]) for c in clip_type.keys()}
 
 
-language = ["Person waving", "Dog running in a field"]
-inputs = {
-    'video': to_device(modality_transform['video'](video), device),
-}
-inputs['language'] = to_device(tokenizer(language, max_length=77, padding='max_length',
-                                            truncation=True, return_tensors='pt'), device)
+# language = ["Person waving", "Dog running in a field"]
+# inputs = {
+#     'video': to_device(modality_transform['video'](video), device),
+# }
+# inputs['language'] = to_device(tokenizer(language, max_length=77, padding='max_length',
+#                                             truncation=True, return_tensors='pt'), device)
 
-with torch.no_grad():
-    embeddings = model(inputs)
+# with torch.no_grad():
+#     embeddings = model(inputs)
 
-print("Video x Text: \n",
-        torch.softmax(embeddings['video'] @ embeddings['language'].T, dim=-1).detach().cpu().numpy())
+# print("Video x Text: \n",
+#         torch.softmax(embeddings['video'] @ embeddings['language'].T, dim=-1).detach().cpu().numpy())
