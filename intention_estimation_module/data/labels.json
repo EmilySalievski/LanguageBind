@@ -1,0 +1,9 @@
+{
+  "intents": [
+    "summarize",
+    "locate_segment",
+    "find_screenshot",
+    "transcript_answer",
+    "compare_explanation"
+  ]
+}

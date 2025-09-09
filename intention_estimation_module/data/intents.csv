@@ -1,0 +1,5 @@
+text,label
+Find the screenshot of clogged nozzle.,find_screenshot
+Give a transcript of the calibration section.,transcript_answer
+Show the segment where PLA is compared to ABS.,locate_segment
+Summarize the whole video.,summarize
