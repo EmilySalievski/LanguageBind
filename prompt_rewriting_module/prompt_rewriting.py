@@ -47,7 +47,11 @@ class PromptRewritingModule():
         self.temporal_context = self.user_intent.get("temporal_context") # None, During, Before, After
         self.spatial_context = self.user_intent.get("spatial_context") # None, Inside, In front, Left of, Right of, Behind, On top of, Under
 
-        self.extra_information = None
+        self.task_extra_information = None
+        self.modality_extra_information = None
+        self.complexity_extra_information = None
+        self.temporal_extra_information = None
+        self.spatial_extra_information = None
 
         # Default is 1.0
         # self.generation_config = GenerationConfig(temperature=1.0)
@@ -57,23 +61,77 @@ class PromptRewritingModule():
             system_instruction=system_instruction_general
         )  
 
-    def task_context(self):
+    def task_info(self): # giving few-shot example prompts as extra context
         if str(self.task_type).upper() == "TEMPORAL LOCALISATION":
-            self.extra_information = """
+            self.task_extra_information = """
             This is a temporal localisation task. Prompts can be rewritten like so:
             Prompt: "Can you just tell whenever that cup falls off the table? I remember I once dropped my mug and it shattered everywhere - it was a huge pain to clean up! That was ages ago though.
 
-            Rewritten prompt: Locate when the cup falls off the table.
+            Rewritten prompt: "Locate when the cup falls off the table."
             """
+        if str(self.task_type).upper() == "OBJECT DETECTION":
+            self.task_extra_information = """
+            This is a temporal localisation task. Prompts can be rewritten like so:
+            Prompt: "..."
+
+            Rewritten "..."
+            """
+        if str(self.task_type).upper() == "EVENT RECOGNITION":
+            self.task_extra_information = """
+            This is a temporal localisation task. Prompts can be rewritten like so:
+            Prompt: "..."
+
+            Rewritten "..."
+            """
+        if str(self.task_type).upper() == "QUESTION ANSWERING":
+            self.task_extra_information = """
+            This is a temporal localisation task. Prompts can be rewritten like so:
+            Prompt: "..."
+
+            Rewritten "..."
+            """
+
+    def modality_info(self):
+        pass
+
+    def complexity_info(self):
+        pass
+
+    def temporal_info(self):
+        pass
+
+    def spatial_info(self):
+        pass
             
     def genAIsResponse(self):
-        self.task_context()
+        # Collect extra contexts
+        self.task_info()
+        self.modality_info()
+        self.complexity_info()
+        self.temporal_info()
+        self.spatial_info()
 
-        # Build final instruction: only extra information goes here
-        final_instruction = self.extra_information if self.extra_information else ""
+        # Combine all extra context info into one string
+        extra_info = ""
+        if self.task_extra_information:
+            extra_info += self.task_extra_information + "\n"
+        if self.modality_extra_information:
+            extra_info += self.modality_extra_information + "\n"
+        if self.complexity_extra_information:
+            extra_info += self.complexity_extra_information + "\n"
+        if self.temporal_extra_information:
+            extra_info += self.temporal_extra_information + "\n"
+        if self.spatial_extra_information:
+            extra_info += self.spatial_extra_information + "\n"
 
+        # Send original prompt + all extra info together as "user" input
         response = self.model.generate_content([
-            {"role": "user", "parts": [self.original_prompt, final_instruction]}
+            {
+                "role": "user",
+                "parts": [
+                    f"Original prompt:\n{self.original_prompt.strip()}\n\nExtra context:\n{extra_info.strip()}"
+                ]
+            }
         ])
         return response.text
 
