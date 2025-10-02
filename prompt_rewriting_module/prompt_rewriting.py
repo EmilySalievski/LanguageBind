@@ -1,9 +1,6 @@
 import os
 import google.generativeai as genai
-from google.generativeai.types import GenerationConfig
 from dotenv import load_dotenv
-from concurrent.futures import ThreadPoolExecutor, as_completed
-import time
 import json
 
 load_dotenv()
@@ -65,43 +62,154 @@ class PromptRewritingModule():
         if str(self.task_type).upper() == "TEMPORAL LOCALISATION":
             self.task_extra_information = """
             This is a temporal localisation task. Prompts can be rewritten like so:
-            Prompt: "Can you just tell whenever that cup falls off the table? I remember I once dropped my mug and it shattered everywhere - it was a huge pain to clean up! That was ages ago though.
+            Prompt: "I once dropped my mug and it shattered everywhere. It was such a pain to clean up, and I still remember 
+                     it even though it was ages ago. Could you let me know if that cup falls off the table? I'd rather not go 
+                     through that hassle again.”
 
             Rewritten prompt: "Locate when the cup falls off the table."
             """
         if str(self.task_type).upper() == "OBJECT DETECTION":
             self.task_extra_information = """
-            This is a temporal localisation task. Prompts can be rewritten like so:
-            Prompt: "..."
+            This is an object detection task. Prompts can be rewritten like so:
+            Prompt: "I'm going for a picnic tomorrow and I want to make sure the basket is packed. Could you tell me if there's 
+                     a Mount Franklin bottle in the scene so I don't forget?"
 
-            Rewritten "..."
+            Rewritten prompt: "Detect the water bottle."
             """
         if str(self.task_type).upper() == "EVENT RECOGNITION":
             self.task_extra_information = """
-            This is a temporal localisation task. Prompts can be rewritten like so:
-            Prompt: "..."
+            This is an event recognition task. Prompts can be rewritten like so:
+            Prompt: "I love birthday parties. Could you check if the person in the video is blowing out the candles on the cake?"
 
-            Rewritten "..."
+            Rewritten prompt: "Show when the candles are blown out."
             """
         if str(self.task_type).upper() == "QUESTION ANSWERING":
             self.task_extra_information = """
-            This is a temporal localisation task. Prompts can be rewritten like so:
-            Prompt: "..."
+            This is a question answering task. Prompts can be rewritten like so:
+            Prompt: "It's my son's fifth birthday today and I'm still setting up! How many balloons are in the video? I need 
+                     to check before the party."
 
-            Rewritten "..."
+            Rewritten prompt: "Location the balloons in the video." 
+
+            Prompt: "My favourite colour is red, and I always notice it everywhere. What colour is his sweater in the video?"
+            
+            Rewritten prompt: "Locate the man wearing a sweater."
             """
 
     def modality_info(self):
         pass
 
     def complexity_info(self):
-        pass
+        if str(self.complexity).upper() == "SIMPLE":
+            self.complexity_extra_information = """
+            This is a simple complexity task. Prompts can be rewritten like so:
+            Prompt: "I have two cats at home, one of them is black and always hides under the couch. By the way, can you see 
+                     if there is a cat in the video?"
+            
+            Rewritten prompt: "Detect the cat."
+            """
+
+        if str(self.complexity).upper() == "CAUSAL":
+            self.complexity_extra_information = """
+            This is a causal complexity task. Prompts can be rewritten like so:
+            Prompt: "Last week I dropped a glass on my kitchen floor, and it shattered everywhere. In the video, the vase
+                     broke because something knocked it over. Could you tell me what caused the vase to break?"
+            
+            Rewritten prompt: "Show when the vase is knocked over."
+            """
+
+        if str(self.complexity).upper() == "TEMPORAL":
+            self.complexity_extra_information = """
+            This is a simple complexity task. Prompts can be rewritten like so:
+            Prompt: "I remember when I used to play soccer as a kid, I always kicked the ball too early. In the video, the boy 
+                     first grabs the ball, then later he kicks it. Can you find when he kicks the ball?"
+            
+            Rewritten prompt: "Detect when the boy kicks the ball."
+            """
 
     def temporal_info(self):
-        pass
+        if str(self.temporal_context).upper() == "DURING":
+            self.temporal_extra_information = """
+            This is a temporal context (During) task. Prompts can be rewritten like so:
+            Prompt: "I always cheer loudest during the last lap of a race. In the video, can you show the moment during the race when the runner crosses the finish line?"
+            
+            Rewritten prompt: "During the race, show the runner crossing the finish line."
+            """
+
+        if str(self.temporal_context).upper() == "BEFORE":
+            self.temporal_extra_information = """
+            This is a temporal context (Before) task. Prompts can be rewritten like so:
+            Prompt: "Before every birthday, my family sets up decorations. In the video, can you find what happens before the child opens the present?"
+            
+            Rewritten prompt: "Before the child opens the present."
+            """
+
+        if str(self.temporal_context).upper() == "AFTER":
+            self.temporal_extra_information = """
+            This is a temporal context (After) task. Prompts can be rewritten like so:
+            Prompt: "After I finish my coffee, I usually check my phone. In the video, can you show what happens after the man drops his phone?"
+            
+            Rewritten prompt: "After the man drops his phone."
+            """
 
     def spatial_info(self):
-        pass
+        if str(self.spatial_context).upper() == "INSIDE":
+            self.spatial_extra_information = """
+            This is a spatial context (Inside) task. Prompts can be rewritten like so:
+            Prompt: "I once hid inside a car trunk as a prank. In the video, can you show the dog inside the car?"
+            
+            Rewritten prompt: "Dog inside the car."
+            """
+
+        if str(self.spatial_context).upper() == "IN FRONT":
+            self.spatial_extra_information = """
+            This is a spatial context (In front) task. Prompts can be rewritten like so:
+            Prompt: "At school, I hated standing in front of everyone during speeches. In the video, can you show the person standing in front of the building?"
+            
+            Rewritten prompt: "Person in front of the building."
+            """
+
+        if str(self.spatial_context).upper() == "LEFT OF":
+            self.spatial_extra_information = """
+            This is a spatial context (Left of) task. Prompts can be rewritten like so:
+            Prompt: "I always keep my notebook to the right of my laptop. In the video, can you show the chair to the left of the table?"
+            
+            Rewritten prompt: "Chair left of the table."
+            """
+
+        if str(self.spatial_context).upper() == "RIGHT OF":
+            self.spatial_extra_information = """
+            This is a spatial context (Right of) task. Prompts can be rewritten like so:
+            Prompt: "I like to keep my living room well-light with lots of lights. Can you show the lamp to the right of the sofa?"
+            
+            Rewritten prompt: "Lamp right of the sofa."
+            """
+
+        if str(self.spatial_context).upper() == "BEHIND":
+            self.spatial_extra_information = """
+            This is a spatial context (Behind) task. Prompts can be rewritten like so:
+            Prompt: "I took my dog to the dog park earlier today and took this video. In the video, can you show the dog behind the fence? "
+            
+            Rewritten prompt: "Dog behind the fence."
+            """
+
+        if str(self.spatial_context).upper() == "ON TOP OF":
+            self.spatial_extra_information = """
+            This is a spatial context (On top of) task. Prompts can be rewritten like so:
+            Prompt: "I love reading - it's one of my favourite pastimes. I had to pack all my books away when I was moving out.
+                     I think I misplaced my books, can you show the box on top of the table?"
+            
+            Rewritten prompt: "Box on top of the table."
+            """
+
+        if str(self.spatial_context).upper() == "UNDER":
+            self.spatial_extra_information = """
+            This is a spatial context (Under) task. Prompts can be rewritten like so:
+            Prompt: "As a child I used to crawl under the bed during storms. In the video, can you show the cat under the chair?"
+            
+            Rewritten prompt: "Cat under the chair."
+            """
+
             
     def genAIsResponse(self):
         # Collect extra contexts
