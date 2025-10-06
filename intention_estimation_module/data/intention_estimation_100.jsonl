@@ -1,0 +1,100 @@
+{"prompt": "What is the man holding in his hands?", "task_type": "event recognition", "output_modality": "video", "complexity": "temporal", "temporal_context": "none", "spatial_context": "none"}
+{"prompt": "What happened before the glass shattered?", "task_type": "object detection", "output_modality": "text", "complexity": "causal", "temporal_context": "during", "spatial_context": "inside"}
+{"prompt": "Who is sitting on top of the car?", "task_type": "object detection", "output_modality": "image", "complexity": "simple", "temporal_context": "before", "spatial_context": "inside"}
+{"prompt": "Where is the dog located inside the house?", "task_type": "question answering", "output_modality": "image", "complexity": "causal", "temporal_context": "before", "spatial_context": "in front"}
+{"prompt": "What object is in front of the woman?", "task_type": "object detection", "output_modality": "video", "complexity": "temporal", "temporal_context": "none", "spatial_context": "behind"}
+{"prompt": "Describe the event happening after the music starts.", "task_type": "event recognition", "output_modality": "text", "complexity": "simple", "temporal_context": "none", "spatial_context": "inside"}
+{"prompt": "What is under the table?", "task_type": "question answering", "output_modality": "image", "complexity": "temporal", "temporal_context": "after", "spatial_context": "behind"}
+{"prompt": "What action is the person performing?", "task_type": "object detection", "output_modality": "video", "complexity": "temporal", "temporal_context": "during", "spatial_context": "inside"}
+{"prompt": "Which vehicle is parked behind the bus?", "task_type": "question answering", "output_modality": "video", "complexity": "simple", "temporal_context": "after", "spatial_context": "left of"}
+{"prompt": "Who entered the room before the lights turned on?", "task_type": "temporal localisation", "output_modality": "image", "complexity": "temporal", "temporal_context": "after", "spatial_context": "behind"}
+{"prompt": "What is happening during the football match?", "task_type": "event recognition", "output_modality": "image", "complexity": "simple", "temporal_context": "none", "spatial_context": "inside"}
+{"prompt": "Identify the object left of the computer.", "task_type": "question answering", "output_modality": "text", "complexity": "simple", "temporal_context": "during", "spatial_context": "inside"}
+{"prompt": "What caused the child to start crying?", "task_type": "question answering", "output_modality": "image", "complexity": "simple", "temporal_context": "none", "spatial_context": "left of"}
+{"prompt": "What is the man doing with the hammer?", "task_type": "question answering", "output_modality": "text", "complexity": "simple", "temporal_context": "before", "spatial_context": "in front"}
+{"prompt": "Which person is sitting on the chair?", "task_type": "temporal localisation", "output_modality": "text", "complexity": "simple", "temporal_context": "none", "spatial_context": "on top of"}
+{"prompt": "What happened after the bell rang?", "task_type": "event recognition", "output_modality": "text", "complexity": "temporal", "temporal_context": "after", "spatial_context": "on top of"}
+{"prompt": "What animal is under the bridge?", "task_type": "object detection", "output_modality": "video", "complexity": "causal", "temporal_context": "after", "spatial_context": "right of"}
+{"prompt": "Who was standing in front of the door?", "task_type": "object detection", "output_modality": "video", "complexity": "causal", "temporal_context": "before", "spatial_context": "behind"}
+{"prompt": "What event is occurring at the concert?", "task_type": "question answering", "output_modality": "image", "complexity": "temporal", "temporal_context": "none", "spatial_context": "behind"}
+{"prompt": "What is the boy holding above his head?", "task_type": "object detection", "output_modality": "text", "complexity": "simple", "temporal_context": "none", "spatial_context": "behind"}
+{"prompt": "What happened before the person sat down?", "task_type": "object detection", "output_modality": "video", "complexity": "simple", "temporal_context": "none", "spatial_context": "none"}
+{"prompt": "Who is running during the parade?", "task_type": "question answering", "output_modality": "video", "complexity": "temporal", "temporal_context": "during", "spatial_context": "on top of"}
+{"prompt": "What item is inside the box?", "task_type": "temporal localisation", "output_modality": "video", "complexity": "temporal", "temporal_context": "after", "spatial_context": "in front"}
+{"prompt": "Which player scored the goal?", "task_type": "event recognition", "output_modality": "video", "complexity": "causal", "temporal_context": "during", "spatial_context": "under"}
+{"prompt": "Where is the book located on the shelf?", "task_type": "event recognition", "output_modality": "text", "complexity": "causal", "temporal_context": "after", "spatial_context": "none"}
+{"prompt": "What is the woman wearing on top of her dress?", "task_type": "event recognition", "output_modality": "text", "complexity": "simple", "temporal_context": "before", "spatial_context": "behind"}
+{"prompt": "What is happening after the fireworks started?", "task_type": "event recognition", "output_modality": "image", "complexity": "temporal", "temporal_context": "during", "spatial_context": "behind"}
+{"prompt": "Who was behind the counter?", "task_type": "event recognition", "output_modality": "text", "complexity": "causal", "temporal_context": "after", "spatial_context": "left of"}
+{"prompt": "What is the object left of the vase?", "task_type": "question answering", "output_modality": "text", "complexity": "temporal", "temporal_context": "during", "spatial_context": "inside"}
+{"prompt": "What happened during the accident?", "task_type": "object detection", "output_modality": "image", "complexity": "causal", "temporal_context": "after", "spatial_context": "under"}
+{"prompt": "Which person was standing right of the speaker?", "task_type": "question answering", "output_modality": "image", "complexity": "simple", "temporal_context": "before", "spatial_context": "left of"}
+{"prompt": "What caused the water to overflow?", "task_type": "question answering", "output_modality": "video", "complexity": "temporal", "temporal_context": "before", "spatial_context": "under"}
+{"prompt": "What is lying under the bed?", "task_type": "question answering", "output_modality": "video", "complexity": "temporal", "temporal_context": "during", "spatial_context": "on top of"}
+{"prompt": "Who appeared before the teacher entered?", "task_type": "event recognition", "output_modality": "image", "complexity": "simple", "temporal_context": "after", "spatial_context": "in front"}
+{"prompt": "What is inside the drawer?", "task_type": "event recognition", "output_modality": "text", "complexity": "causal", "temporal_context": "none", "spatial_context": "on top of"}
+{"prompt": "What happened after the car stopped?", "task_type": "object detection", "output_modality": "text", "complexity": "simple", "temporal_context": "before", "spatial_context": "none"}
+{"prompt": "Which dog is sitting on top of the sofa?", "task_type": "question answering", "output_modality": "text", "complexity": "temporal", "temporal_context": "during", "spatial_context": "on top of"}
+{"prompt": "What action is the chef performing?", "task_type": "object detection", "output_modality": "text", "complexity": "temporal", "temporal_context": "after", "spatial_context": "left of"}
+{"prompt": "What event is happening during the speech?", "task_type": "event recognition", "output_modality": "video", "complexity": "simple", "temporal_context": "during", "spatial_context": "on top of"}
+{"prompt": "What is behind the curtain?", "task_type": "temporal localisation", "output_modality": "text", "complexity": "simple", "temporal_context": "after", "spatial_context": "in front"}
+{"prompt": "Which item is on top of the desk?", "task_type": "event recognition", "output_modality": "text", "complexity": "temporal", "temporal_context": "none", "spatial_context": "in front"}
+{"prompt": "What happened before the phone rang?", "task_type": "event recognition", "output_modality": "video", "complexity": "causal", "temporal_context": "during", "spatial_context": "in front"}
+{"prompt": "Who walked in after the music stopped?", "task_type": "question answering", "output_modality": "video", "complexity": "temporal", "temporal_context": "before", "spatial_context": "inside"}
+{"prompt": "What is in front of the stage?", "task_type": "object detection", "output_modality": "text", "complexity": "simple", "temporal_context": "none", "spatial_context": "behind"}
+{"prompt": "What activity is happening at the park?", "task_type": "question answering", "output_modality": "image", "complexity": "simple", "temporal_context": "none", "spatial_context": "none"}
+{"prompt": "Which child is playing left of the slide?", "task_type": "event recognition", "output_modality": "text", "complexity": "causal", "temporal_context": "before", "spatial_context": "none"}
+{"prompt": "What is under the chair?", "task_type": "question answering", "output_modality": "image", "complexity": "temporal", "temporal_context": "after", "spatial_context": "under"}
+{"prompt": "What happened during the performance?", "task_type": "question answering", "output_modality": "video", "complexity": "simple", "temporal_context": "during", "spatial_context": "none"}
+{"prompt": "Who was standing behind the car?", "task_type": "event recognition", "output_modality": "text", "complexity": "causal", "temporal_context": "none", "spatial_context": "under"}
+{"prompt": "What object is in front of the statue?", "task_type": "temporal localisation", "output_modality": "image", "complexity": "simple", "temporal_context": "after", "spatial_context": "on top of"}
+{"prompt": "Which person entered the room during the meeting?", "task_type": "temporal localisation", "output_modality": "image", "complexity": "simple", "temporal_context": "after", "spatial_context": "in front"}
+{"prompt": "What is on top of the cabinet?", "task_type": "object detection", "output_modality": "video", "complexity": "temporal", "temporal_context": "none", "spatial_context": "none"}
+{"prompt": "What happened before the lights went out?", "task_type": "event recognition", "output_modality": "video", "complexity": "temporal", "temporal_context": "before", "spatial_context": "behind"}
+{"prompt": "Who sat down after the teacher left?", "task_type": "temporal localisation", "output_modality": "text", "complexity": "causal", "temporal_context": "none", "spatial_context": "behind"}
+{"prompt": "What event is being celebrated?", "task_type": "event recognition", "output_modality": "text", "complexity": "temporal", "temporal_context": "before", "spatial_context": "none"}
+{"prompt": "Which bag is under the table?", "task_type": "object detection", "output_modality": "video", "complexity": "temporal", "temporal_context": "before", "spatial_context": "under"}
+{"prompt": "What is the man carrying inside the box?", "task_type": "object detection", "output_modality": "text", "complexity": "causal", "temporal_context": "none", "spatial_context": "on top of"}
+{"prompt": "Who was standing left of the window?", "task_type": "question answering", "output_modality": "image", "complexity": "simple", "temporal_context": "after", "spatial_context": "inside"}
+{"prompt": "What is happening during the ceremony?", "task_type": "event recognition", "output_modality": "video", "complexity": "temporal", "temporal_context": "during", "spatial_context": "right of"}
+{"prompt": "What object is behind the sofa?", "task_type": "event recognition", "output_modality": "text", "complexity": "simple", "temporal_context": "after", "spatial_context": "none"}
+{"prompt": "Which person spoke after the question was asked?", "task_type": "question answering", "output_modality": "image", "complexity": "simple", "temporal_context": "after", "spatial_context": "inside"}
+{"prompt": "What happened before the alarm sounded?", "task_type": "object detection", "output_modality": "video", "complexity": "temporal", "temporal_context": "before", "spatial_context": "left of"}
+{"prompt": "What is in front of the camera?", "task_type": "question answering", "output_modality": "video", "complexity": "temporal", "temporal_context": "after", "spatial_context": "in front"}
+{"prompt": "Who is on top of the ladder?", "task_type": "object detection", "output_modality": "video", "complexity": "causal", "temporal_context": "after", "spatial_context": "under"}
+{"prompt": "What action is the athlete performing?", "task_type": "event recognition", "output_modality": "image", "complexity": "causal", "temporal_context": "during", "spatial_context": "left of"}
+{"prompt": "Which event happened during the festival?", "task_type": "question answering", "output_modality": "text", "complexity": "temporal", "temporal_context": "before", "spatial_context": "left of"}
+{"prompt": "What object is inside the backpack?", "task_type": "event recognition", "output_modality": "video", "complexity": "temporal", "temporal_context": "none", "spatial_context": "under"}
+{"prompt": "What is happening after the door closed?", "task_type": "object detection", "output_modality": "video", "complexity": "causal", "temporal_context": "none", "spatial_context": "behind"}
+{"prompt": "Who is under the tree?", "task_type": "event recognition", "output_modality": "text", "complexity": "simple", "temporal_context": "none", "spatial_context": "in front"}
+{"prompt": "What happened before the storm began?", "task_type": "question answering", "output_modality": "video", "complexity": "temporal", "temporal_context": "none", "spatial_context": "left of"}
+{"prompt": "What is behind the wall?", "task_type": "question answering", "output_modality": "image", "complexity": "causal", "temporal_context": "during", "spatial_context": "right of"}
+{"prompt": "Which person is left of the teacher?", "task_type": "temporal localisation", "output_modality": "image", "complexity": "causal", "temporal_context": "before", "spatial_context": "under"}
+{"prompt": "What item is sitting on top of the box?", "task_type": "object detection", "output_modality": "video", "complexity": "causal", "temporal_context": "during", "spatial_context": "none"}
+{"prompt": "Who was standing in front of the bus?", "task_type": "question answering", "output_modality": "video", "complexity": "simple", "temporal_context": "before", "spatial_context": "on top of"}
+{"prompt": "What happened during the discussion?", "task_type": "event recognition", "output_modality": "video", "complexity": "temporal", "temporal_context": "during", "spatial_context": "left of"}
+{"prompt": "What is under the blanket?", "task_type": "object detection", "output_modality": "text", "complexity": "causal", "temporal_context": "before", "spatial_context": "on top of"}
+{"prompt": "Which event occurred after the bell rang?", "task_type": "event recognition", "output_modality": "video", "complexity": "simple", "temporal_context": "before", "spatial_context": "in front"}
+{"prompt": "What is the dog holding in its mouth?", "task_type": "question answering", "output_modality": "text", "complexity": "simple", "temporal_context": "during", "spatial_context": "none"}
+{"prompt": "What is happening before the sun sets?", "task_type": "object detection", "output_modality": "video", "complexity": "causal", "temporal_context": "during", "spatial_context": "on top of"}
+{"prompt": "Who appeared during the interview?", "task_type": "object detection", "output_modality": "video", "complexity": "causal", "temporal_context": "none", "spatial_context": "inside"}
+{"prompt": "What object is on top of the shelf?", "task_type": "question answering", "output_modality": "text", "complexity": "causal", "temporal_context": "during", "spatial_context": "on top of"}
+{"prompt": "What happened after the book fell?", "task_type": "temporal localisation", "output_modality": "image", "complexity": "temporal", "temporal_context": "none", "spatial_context": "none"}
+{"prompt": "Which person is behind the podium?", "task_type": "object detection", "output_modality": "text", "complexity": "simple", "temporal_context": "none", "spatial_context": "on top of"}
+{"prompt": "What action is the woman performing?", "task_type": "temporal localisation", "output_modality": "image", "complexity": "causal", "temporal_context": "before", "spatial_context": "none"}
+{"prompt": "What is inside the envelope?", "task_type": "question answering", "output_modality": "text", "complexity": "temporal", "temporal_context": "after", "spatial_context": "right of"}
+{"prompt": "Who was sitting right of the speaker?", "task_type": "object detection", "output_modality": "text", "complexity": "simple", "temporal_context": "before", "spatial_context": "in front"}
+{"prompt": "What happened before the curtain closed?", "task_type": "question answering", "output_modality": "text", "complexity": "causal", "temporal_context": "before", "spatial_context": "inside"}
+{"prompt": "Which event occurred after the game ended?", "task_type": "temporal localisation", "output_modality": "image", "complexity": "temporal", "temporal_context": "after", "spatial_context": "right of"}
+{"prompt": "What is in front of the building?", "task_type": "question answering", "output_modality": "image", "complexity": "causal", "temporal_context": "none", "spatial_context": "behind"}
+{"prompt": "What object is left of the TV?", "task_type": "object detection", "output_modality": "image", "complexity": "causal", "temporal_context": "none", "spatial_context": "under"}
+{"prompt": "Who is under the bridge?", "task_type": "temporal localisation", "output_modality": "video", "complexity": "simple", "temporal_context": "none", "spatial_context": "behind"}
+{"prompt": "What activity is happening at the school?", "task_type": "temporal localisation", "output_modality": "video", "complexity": "simple", "temporal_context": "during", "spatial_context": "right of"}
+{"prompt": "What happened during the concert?", "task_type": "object detection", "output_modality": "video", "complexity": "causal", "temporal_context": "after", "spatial_context": "left of"}
+{"prompt": "What is on top of the refrigerator?", "task_type": "temporal localisation", "output_modality": "image", "complexity": "simple", "temporal_context": "during", "spatial_context": "left of"}
+{"prompt": "Who was behind the fence?", "task_type": "object detection", "output_modality": "image", "complexity": "simple", "temporal_context": "before", "spatial_context": "on top of"}
+{"prompt": "What object is inside the bag?", "task_type": "event recognition", "output_modality": "image", "complexity": "causal", "temporal_context": "before", "spatial_context": "on top of"}
+{"prompt": "What happened before the bus arrived?", "task_type": "question answering", "output_modality": "text", "complexity": "temporal", "temporal_context": "after", "spatial_context": "right of"}
+{"prompt": "What is the man lifting above his head?", "task_type": "object detection", "output_modality": "text", "complexity": "causal", "temporal_context": "after", "spatial_context": "behind"}
+{"prompt": "Which person appeared during the show?", "task_type": "object detection", "output_modality": "text", "complexity": "temporal", "temporal_context": "during", "spatial_context": "behind"}
+{"prompt": "What event is happening after the announcement?", "task_type": "temporal localisation", "output_modality": "image", "complexity": "simple", "temporal_context": "none", "spatial_context": "behind"}

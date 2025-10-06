@@ -1,0 +1,6 @@
+classifier_model: "microsoft/deberta-v3-large" # only point to this if models/fine_tuned_classifier doesn't exist, see fine-tuning in readME
+peft_model: "models/fine_tuned_classifier"
+fallback_model: "mistralai/Mistral-7B-Instruct-v0.3"
+quantization: "Q4_K_M"
+confidence_threshold: 0.01
+max_length: 512

@@ -1,9 +1,34 @@
 {
-  "intents": [
-    "summarize",
-    "locate_segment",
-    "find_screenshot",
-    "transcript_answer",
-    "compare_explanation"
-  ]
+    "task_type": [
+      "temporal localisation",
+      "object detection",
+      "event recognition",
+      "question answering"
+    ],
+    "output_modality": [
+      "text",
+      "image",
+      "video"
+    ],
+    "complexity": [
+      "temporal",
+      "simple",
+      "causal"
+    ],
+    "temporal_context": [
+      "none",
+      "during",
+      "before",
+      "after"
+    ],
+    "spatial_context": [
+      "none",
+      "inside",
+      "in front",
+      "left of",
+      "right of",
+      "behind",
+      "on top of",
+      "under"
+    ]
 }
