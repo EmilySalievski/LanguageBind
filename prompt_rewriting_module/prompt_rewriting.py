@@ -94,6 +94,10 @@ class PromptRewritingModule():
             Prompt: "My favourite colour is red, and I always notice it everywhere. What colour is his sweater in the video?"
             
             Rewritten prompt: "Locate the man wearing a sweater."
+
+            Prompt: "How many dogs are in this video? Can you count them for me?"
+
+            Rewritten prompt: "Show the dogs in the video."
             """
 
     def modality_info(self):
@@ -245,16 +249,16 @@ class PromptRewritingModule():
 
 if __name__ == "__main__":
     intent = {
-        "task_type": "Temporal Localisation",
+        "task_type": "Event Recognition",
         "output_modality": "Video",
-        "complexity": "Simple",
+        "complexity": "Temporal",
         "temporal_context": "During",
         "spatial_context": "None"
     }
-    prompt = """
-    In this birthday party video, there are kids running around, music playing, and people laughing. 
-    It made me think of when I was younger and I hated when balloons popped because it was so loud. 
-    Anyway, I just want to know when the child actually pops the balloon in this video.
-    """
+    prompt = " I jsut bought my new kyeyboard and l am really sturggling to type on this thing... \n But anywys cabn you maybe justn show me when nthe man leves his car in thsi video??? \n I can;'t be botehred wathcing it all lol"
+
     module = PromptRewritingModule(prompt, intent)
-    print(module.genAIsResponse())
+
+    print("Original Prompt: " + prompt)
+    print("User Intent: " + str(intent) )
+    print("Rewritten Prompt: " + module.genAIsResponse())
