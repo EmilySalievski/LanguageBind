@@ -255,9 +255,16 @@ if __name__ == "__main__":
         "temporal_context": "During",
         "spatial_context": "None"
     }
+    blank_intent = {
+        "task_type": "None",
+        "output_modality": "Video",
+        "complexity": "None",
+        "temporal_context": "None",
+        "spatial_context": "None"
+    }
     prompt = " I jsut bought my new kyeyboard and l am really sturggling to type on this thing... \n But anywys cabn you maybe justn show me when nthe man leves his car in thsi video??? \n I can;'t be botehred wathcing it all lol"
 
-    module = PromptRewritingModule(prompt, intent)
+    module = PromptRewritingModule(prompt, blank_intent)
 
     print("Original Prompt: " + prompt)
     print("User Intent: " + str(intent) )
