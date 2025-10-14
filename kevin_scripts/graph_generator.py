@@ -15,7 +15,7 @@ def saveSoftmaxGraph(file: str, softmax_key: str):
         for video in data["videos"]
         for clip in video["clips"]
         for ann in clip["annotations"]
-        if ann.get(softmax_key) is not None
+        if ann.get(softmax_key) is not None and ann.get("test_set") == "test"
     ]
 
     # Convert to NumPy array
@@ -48,8 +48,9 @@ def saveSoftmaxGraph(file: str, softmax_key: str):
     plt.xlabel("Softmax Score")
     plt.ylabel("Count")
 
-    plt.savefig(f"/home/cod022/stuff/{softmax_key}_plot.png")
+    plt.savefig(f"intent_dataset/graphs/{softmax_key}_plot.png")
     print(f"Plot saved as {softmax_key}_plot.png")
+    plt.clf()
     return
 
 def saveInverseTimeSoftmaxGraph(file: str, softmax_key: str):
@@ -67,8 +68,8 @@ def saveInverseTimeSoftmaxGraph(file: str, softmax_key: str):
                 softmax_value = ann.get(softmax_key)
                 query_length = ann.get("query_length_percentage")
 
-                # Only process if both values are valid and query_length is not zero
-                if softmax_value is not None and query_length and query_length > 0:
+                # Only process if both values are valid and query_length is not zero and its a test query
+                if softmax_value is not None and query_length and query_length > 0 and ann.get("test_set") == "test":
                     adjusted_score = softmax_value * (1 - query_length)
                     adjusted_softmax_values.append(adjusted_score)
                 else:
@@ -106,12 +107,13 @@ def saveInverseTimeSoftmaxGraph(file: str, softmax_key: str):
 
     # Graph Data
     sns.histplot(adjusted_array, bins=50, kde=True)
-    plt.title(f"Adjusted Softmax (× 1 - query_length_percentage) for {softmax_key}")
+    plt.title(f"Adjusted Softmax for {softmax_key}")
     plt.xlabel("Adjusted Softmax Score")
     plt.ylabel("Count")
 
-    plt.savefig(f"/home/cod022/stuff/{softmax_key}_adjusted_plot.png")
+    plt.savefig(f"intent_dataset/graphs/{softmax_key}_adjusted_plot.png")
     print(f"Plot saved as {softmax_key}_adjusted_plot.png")
+    plt.clf()
     return
 
 def compare_p_values(file: str, value_key_1: str, value_key_2: str):
@@ -155,4 +157,11 @@ def compare_p_values(file: str, value_key_1: str, value_key_2: str):
         print("Result: No statistically significant difference (fail to reject H0)")
 
 if __name__ == "__main__":
-    saveInverseTimeSoftmaxGraph("/home/datasets/ego4d_data/improved_prompts_with_softmax.json", "query_original_prompt_rewritting_ablation")
+    # saveSoftmaxGraph("/home/cod022/models/LanguageBind/intent_dataset/merged_datatset.json", "query_original_prompt_rewritting_ablation")
+    # saveInverseTimeSoftmaxGraph("/home/cod022/models/LanguageBind/intent_dataset/merged_datatset.json", "query_original_prompt_rewritting_ablation")
+    # saveSoftmaxGraph("/home/cod022/models/LanguageBind/intent_dataset/merged_datatset.json", "query_original_softmax")
+    # saveInverseTimeSoftmaxGraph("/home/cod022/models/LanguageBind/intent_dataset/merged_datatset.json", "query_original_softmax")
+    # saveSoftmaxGraph("/home/cod022/models/LanguageBind/intent_dataset/merged_datatset.json", "query_moderate_softmax")
+    # saveInverseTimeSoftmaxGraph("/home/cod022/models/LanguageBind/intent_dataset/merged_datatset.json", "query_moderate_softmax")
+    saveSoftmaxGraph("/home/cod022/models/LanguageBind/intent_dataset/merged_datatset.json", "query_moderate_prompt_rewritting_ablation")
+    saveInverseTimeSoftmaxGraph("/home/cod022/models/LanguageBind/intent_dataset/merged_datatset.json", "query_moderate_prompt_rewritting_ablation")
